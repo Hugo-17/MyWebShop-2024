@@ -4,37 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="../css/register.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="/images/uva_logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/uva_logo.ico" type="image/x-icon">
 </head>
 <body>
     
     <div id="container">
 
         <div class="logo-img">
-            <a href="index.html" title="Imagen Logotipo"><img src="/images/uva_logo.ico" alt="Logo" width="200" height="200"/></a>
+            <a href="index.html" title="Imagen Logotipo"><img src="../images/uva_logo.ico" alt="Logo" width="200" height="200"/></a>
         </div>
 
-        <form action="login.html">
+        <form action="login.html" method="post" onsubmit="return validationform()">
             <h1>Register</h1>
             
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" id="Username" placeholder="Username">
                 <i class='bx bxs-user' ></i>
             </div>
 
             <div class="input-box">
-                <input type="email" placeholder="Correo electronico" required>
+                <input type="email" id="email" placeholder="Correo electronico">
                 <i class='bx bxs-envelope'></i>
             </div>
     
             <div class="input-box">
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" id="password" placeholder="Contraseña">
                 <i class='bx bxs-lock-alt' ></i>
             </div>
 
-            <button type="submit" class="btn">Register</button>
+            <p id="error_text"></p>
+
+            <button type="submit" value="submit" class="btn">Register</button>
 
             <div class="login">
                 <p>¿Ya tienes cuenta? 
@@ -42,5 +44,19 @@
             </div>
         </form>
     </div> 
+
+    <script>
+        function validationform() {
+            var email = document.getElementById("Username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var error_text = document.getElementById("error_text");
+
+            if(email == "" || password == "" || username == ""){
+                error_text.innerHTML = "TIENES QUE RELLENAR LOS CAMPOS";
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
